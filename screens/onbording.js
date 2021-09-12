@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   sDes: {
     fontSize: 16,
     color: Colors.sText,
-    paddingTop: "2%",
+    paddingTop: "1.5%",
   },
   Button: {
     justifyContent: "flex-end",

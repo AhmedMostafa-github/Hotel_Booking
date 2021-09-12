@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from "react-native";
 
 const signup = () => {
   return (
-    <View>
+    <View style={{ flex: 1 }}>
       <Text>t3ala</Text>
     </View>
   );
