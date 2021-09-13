@@ -3,9 +3,9 @@ import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 
 //import needed component
-import images from "../constants/images";
-import Button from "../components/UI/Button";
-import Colors from "../constants/Colors";
+import images from "../../constants/images";
+import Button from "../../components/UI/Button";
+import Colors from "../../constants/Colors";
 
 const onbording = () => {
   return (
@@ -27,9 +27,10 @@ const onbording = () => {
       </View>
       <Button
         text="Next"
-        width="37%"
+        width="40%"
         height={Dimensions.get("screen").height * 0.12}
-        design={styles.Button}
+        design={styles.button}
+        style={styles.buttonText}
       />
     </View>
   );
@@ -61,7 +62,10 @@ const styles = StyleSheet.create({
     color: Colors.sText,
     paddingTop: "1.5%",
   },
-  Button: {
+  button: {
     justifyContent: "flex-end",
+  },
+  buttonText: {
+    paddingVertical: 16,
   },
 });

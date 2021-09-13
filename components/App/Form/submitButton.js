@@ -12,6 +12,7 @@ const submitButton = (props) => {
       text={props.text}
       width={props.width}
       design={props.design}
+      style={props.style}
       onPress={() => handleSubmit()}
       disabled={props.disabled}
     />

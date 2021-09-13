@@ -3,7 +3,7 @@ import { StyleSheet, ScrollView, View, Image } from "react-native";
 
 import Colors from "../../constants/Colors";
 import images from "../../constants/images";
-import { TopTab } from "../../navigation/TopTab";
+import { AuthTab } from "../../navigation/TopTab";
 
 const auth = () => {
   return (
@@ -12,7 +12,7 @@ const auth = () => {
         <View style={styles.logoCont}>
           <Image source={images.logo} style={styles.logo} />
         </View>
-        <TopTab />
+        <AuthTab />
       </View>
     </ScrollView>
   );

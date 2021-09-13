@@ -1,38 +1,24 @@
 import React from "react";
-import {
-  View,
-  Text,
-  TextInput,
-  StyleSheet,
-  TouchableOpacity,
-  Image,
-} from "react-native";
+import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 
-import { Entypo } from "@expo/vector-icons";
+import { Feather } from "@expo/vector-icons";
 
 import Colors from "../../constants/Colors";
 
 const Input = (props) => {
   return (
     <View style={styles.formControl}>
-      <Text style={styles.label}>{props.label}</Text>
       <View style={styles.sectionStyle}>
         <TextInput {...props} style={[styles.input, props.style]} />
         {props.pass && (
           <TouchableOpacity onPress={props.onPress}>
-            <Entypo
+            <Feather
               name={props.pass}
-              size={17}
-              color={Colors.primary}
+              size={24}
+              color="#A9A9A9"
               style={[styles.imageStyle, props.design]}
             />
           </TouchableOpacity>
-        )}
-        {props.check && (
-          <Image
-            source={require("../../assets/image/checkMark.png")}
-            style={styles.check}
-          />
         )}
       </View>
     </View>
@@ -42,38 +28,23 @@ const Input = (props) => {
 const styles = StyleSheet.create({
   formControl: {
     width: "100%",
-    marginTop: 30,
+    marginTop: 15,
   },
-  label: {
-    top: -17,
-    left: 17,
-    position: "absolute",
-    backgroundColor: "#FFF",
-    padding: 5,
-    zIndex: 50,
-    color: "#474747",
-  },
+
   input: {
     paddingHorizontal: 21,
-    paddingVertical: 9,
+    paddingVertical: 15,
     flex: 1,
   },
   sectionStyle: {
     flexDirection: "row",
-    borderWidth: 2,
-    borderRadius: 12,
-
-    borderColor: Colors.third,
-    color: Colors.accent,
+    borderRadius: 27,
     backgroundColor: "white",
   },
   imageStyle: {
     alignSelf: "center",
-    paddingVertical: 13,
-  },
-  check: {
-    alignSelf: "center",
-    marginRight: 13,
+    paddingVertical: 16,
+    marginRight: 15,
   },
 });
 

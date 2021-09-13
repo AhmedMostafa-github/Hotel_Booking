@@ -4,11 +4,12 @@
     "slug": "Hotel_Booking",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/logo.png",
     "splash": {
       "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff" 
+
     },
     "updates": {
       "fallbackToCacheTimeout": 0
