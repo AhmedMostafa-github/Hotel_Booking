@@ -18,16 +18,12 @@ const StartupScreen = (props) => {
         return;
       }
       const transformedData = JSON.parse(userData);
-      const { token, userId, expiryDate } = transformedData;
-      const expirationDate = new Date(expiryDate);
-
-      if (expirationDate <= new Date() || !token || !userId) {
+      const { token, userId } = transformedData;
+      if (!token || !userId) {
         dispatch(authActions.setDidTryAL());
         return;
       }
-      const expirationTime = expirationDate.getTime() - new Date().getTime();
-
-      dispatch(authActions.authenticate(userId, token, expirationTime));
+      dispatch(authActions.authenticate(userId, token));
     };
     tryLogin();
   }, [dispatch]);
