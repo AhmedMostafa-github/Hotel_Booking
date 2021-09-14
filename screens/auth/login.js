@@ -89,7 +89,7 @@ export default login;
 
 const styles = StyleSheet.create({
   cont: {
-    height: Dimensions.get("screen").height * 0.68,
+    height: Dimensions.get("screen").height * 0.75,
     backgroundColor: Colors.accent,
     alignItems: "center",
     paddingTop: "5%",

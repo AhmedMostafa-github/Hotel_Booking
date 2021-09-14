@@ -9,23 +9,43 @@ import Home from "../screens/home/home";
 import StartupScreen from "../screens/starts/StartupScreen";
 import Bookings from "../screens/profile/Bookings";
 import Profile from "../screens/profile/Profile";
+import HotelDetailScreen from "../screens/home/hotelDetailScreen";
+import Colors from "../constants/Colors";
 
 const Stack = createStackNavigator();
 
-export const ProfileStack = () => {
+export const HomeStack = () => {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={{
-            headerShown: false,
-          }}
-        />
-        <Stack.Screen name="Bookings" component={Bookings} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Stack.Navigator>
+      <Stack.Screen
+        name="Home"
+        component={Home}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen
+        name="HotelDetailScreen"
+        component={HotelDetailScreen}
+        options={{
+          title: "Description",
+          headerStyle: {
+            elevation: 0,
+            shadowOpacity: 0,
+            borderBottomWidth: 0,
+            backgroundColor: Colors.accent,
+          },
+        }}
+      />
+      <Stack.Screen
+        name="Profile"
+        component={Profile}
+        options={{
+          headerShown: false,
+        }}
+      />
+      <Stack.Screen name="Bookings" component={Bookings} />
+    </Stack.Navigator>
   );
 };
 
@@ -36,7 +56,7 @@ const AppNavigator = () => {
   );
   return (
     <NavigationContainer>
-      {logginState && <Home />}
+      {logginState && <HomeStack />}
       {!logginState && didTrytoAutoLogin && <Auth />}
       {!logginState && !didTrytoAutoLogin && <StartupScreen />}
     </NavigationContainer>

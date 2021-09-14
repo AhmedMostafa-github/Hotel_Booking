@@ -11,61 +11,86 @@ import {
 } from "react-native";
 
 import axios from "axios";
+
 import Card from "../../components/UI/card";
 import Colors from "../../constants/Colors";
 import images from "../../constants/images";
 
-const Recommend = () => {
-  const [data, setData] = useState([
-    {
-      id: "1",
-      hotel: "Tropicasa De Hotel",
-      address: "Amsterdam, Netherlands",
-      rating: "4.5",
-      image:
-        "https://media.hrs.com/media/image/8c/c2/11/The_Principal_Manchester-Manchester-Junior-Suite-67582_600x600@2x.jpg",
-    },
-    {
-      id: "2",
-      hotel: "Tropicasa De Hotel",
-      address: "Amsterdam, Netherlands",
-      rating: "3",
-      image:
-        "https://malhotragroup.co.uk/wp-content/uploads/2020/09/3_mile_inn_great_north_hotel-122-scaled.jpg",
-    },
-  ]);
+const trncate = (str, n) => {
+  return str?.length > n ? str.substr(0, n - 1) + "..." : str;
+};
 
-  // useEffect(() => {
-  //   axios
-  //     .get(
-  //       "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=1000&types=hotels&name=hilton&key=AIzaSyBXd0FXMkiHno3r-eGBgkUqaFzDDvJs9Fw"
-  //     )
-  //     .then((res) => {
-  //       setId(res.data.results.map((result) => result.place_id));
-  //       // console.log(id);
-  //       setData(res.data.results.map((result) => result.name));
-  //       setApi(res.data.results);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //     });
-  // }, []);
+const Recommend = (props) => {
+  const [data, setData] = useState([]);
+  const Ahmed = [
+    {
+      id: 1,
+      url: "https://media.hrs.com/media/image/8c/c2/11/The_Principal_Manchester-Manchester-Junior-Suite-67582_600x600@2x.jpg",
+    },
+    {
+      id: 2,
+      url: "https://cms.qz.com/wp-content/uploads/2020/07/Wythe-Exterior.jpg?quality=75&strip=all&w=1600&h=900&crop=1",
+    },
+  ];
+
+  useEffect(() => {
+    const handleFetch = async () => {
+      try {
+        const res = await axios.get(
+          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=900&types=hotels&name=hilton&key=AIzaSyBXd0FXMkiHno3r-eGBgkUqaFzDDvJs9Fw"
+        );
+        const data = res.data;
+        const test = data.results.map((item, index) => {
+          let currentObj;
+          for (const key in item) {
+            item["Dawly"] = Ahmed.map((item) => item.url)[index];
+            currentObj = item;
+          }
+          return currentObj;
+        });
+        setData(data.results);
+        console.log(test);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    handleFetch();
+  }, []);
+
+  const selectItemHandler = (id, hotel, address, rating, image) => {
+    props.navigation.navigate("HotelDetailScreen", {
+      id: id,
+      hotel: hotel,
+      address: address,
+      rating: rating,
+      image: image,
+    });
+  };
 
   return (
     <View>
       <FlatList
         horizontal={true}
         data={data}
-        keyExtractor={(item) => item.id}
+        keyExtractor={(item) => item.place_id}
         renderItem={(itemData) => (
           <View style={styles.mainCont}>
             <Card style={styles.card}>
               <TouchableOpacity
                 style={{ flex: 1 }}
-                onPress={() => console.log("ahmed")}
+                onPress={() =>
+                  selectItemHandler(
+                    itemData.item.id,
+                    itemData.item.name,
+                    itemData.item.vicinity,
+                    itemData.item.rating,
+                    itemData.item.image
+                  )
+                }
               >
                 <ImageBackground
-                  source={{ uri: itemData.item.image }}
+                  key={itemData.item.id}
+                  source={{ uri: itemData.item.Dawly }}
                   style={{ flex: 1 }}
                 >
                   <View style={styles.starCont}>
@@ -73,8 +98,10 @@ const Recommend = () => {
                     <Text style={styles.rate}>{itemData.item.rating}</Text>
                   </View>
                   <View style={styles.infoCont}>
-                    <Text style={styles.hotel}>{itemData.item.hotel}</Text>
-                    <Text style={styles.address}>{itemData.item.address}</Text>
+                    <Text style={styles.hotel}>
+                      {trncate(itemData.item.name, 20)}
+                    </Text>
+                    <Text style={styles.address}>{itemData.item.vicinity}</Text>
                   </View>
                 </ImageBackground>
               </TouchableOpacity>
