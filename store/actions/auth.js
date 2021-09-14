@@ -1,10 +1,8 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const AUTHENTICATE = "AUTHENTICATE";
-export const SET_DID_TRY_AL = "SET_DID_TRY_AL";
 export const LOGOUT = "LOGOUT";
-
-let timer;
+export const SET_DID_TRY_AL = "SET_DID_TRY_AL";
 
 export const setDidTryAL = () => {
   return { type: SET_DID_TRY_AL };
@@ -85,7 +83,7 @@ export const login = (email, password) => {
     const resData = await response.json();
     console.log(resData);
     dispatch(authenticate(resData.localId, resData.idToken));
-    saveDataToStorage(resData.idToken, resData.localId, expirationDate);
+    saveDataToStorage(resData.idToken, resData.localId);
   };
 };
 

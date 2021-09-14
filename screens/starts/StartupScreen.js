@@ -9,6 +9,7 @@ import * as authActions from "../../store/actions/auth";
 
 const StartupScreen = (props) => {
   const dispatch = useDispatch();
+
   useEffect(() => {
     const tryLogin = async () => {
       const userData = await AsyncStorage.getItem("userData");

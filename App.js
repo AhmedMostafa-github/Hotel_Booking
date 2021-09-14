@@ -6,9 +6,11 @@ import ReduxThunk from "redux-thunk";
 import "react-native-gesture-handler";
 import { StatusBar } from "expo-status-bar";
 
+import Profile from "./screens/profile/Profile";
 import Onbording from "./screens/starts/onbording";
 import AppNavigator from "./navigation/AppNavigator";
 import authReducer from "./store/reducers/auth";
+import { ProfileStack } from "./navigation/AppNavigator";
 
 export const rootReducer = combineReducers({
   auth: authReducer,
