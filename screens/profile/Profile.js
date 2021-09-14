@@ -1,12 +1,16 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
+import { useDispatch } from "react-redux";
+
 import Tabs from "../../components/App/profile/Tabs";
 import Card from "../../components/UI/card";
 import Colors from "../../constants/Colors";
 import images from "../../constants/images";
+import * as authActions from "../../store/actions/auth";
 
 const Profile = ({ navigation }) => {
+  const dispatch = useDispatch();
   return (
     <View style={styles.mainCont}>
       <View style={styles.cont}>
@@ -37,7 +41,11 @@ const Profile = ({ navigation }) => {
         <View style={styles.tabsCont}>
           <Text style={styles.optWord}>Options</Text>
           <Tabs arrow text="User Settings" source={images.award} />
-          <Tabs text="Logout" source={images.logOut} />
+          <Tabs
+            text="Logout"
+            source={images.logOut}
+            onPress={() => dispatch(authActions.logout())}
+          />
           <Tabs
             arrow
             text="Bookings"

@@ -22,7 +22,7 @@ const trncate = (str, n) => {
 
 const Recommend = (props) => {
   const [data, setData] = useState([]);
-  const Ahmed = [
+  const array = [
     {
       id: 1,
       url: "https://media.hrs.com/media/image/8c/c2/11/The_Principal_Manchester-Manchester-Junior-Suite-67582_600x600@2x.jpg",
@@ -37,13 +37,13 @@ const Recommend = (props) => {
     const handleFetch = async () => {
       try {
         const res = await axios.get(
-          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=900&types=hotels&name=hilton&key=AIzaSyBXd0FXMkiHno3r-eGBgkUqaFzDDvJs9Fw"
+          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=hotels&name=hilton&key=AIzaSyBXd0FXMkiHno3r-eGBgkUqaFzDDvJs9Fw"
         );
         const data = res.data;
         const test = data.results.map((item, index) => {
           let currentObj;
           for (const key in item) {
-            item["Dawly"] = Ahmed.map((item) => item.url)[index];
+            item["image"] = array.map((item) => item.url)[index];
             currentObj = item;
           }
           return currentObj;
@@ -90,7 +90,7 @@ const Recommend = (props) => {
               >
                 <ImageBackground
                   key={itemData.item.id}
-                  source={{ uri: itemData.item.Dawly }}
+                  source={{ uri: itemData.item.image }}
                   style={{ flex: 1 }}
                 >
                   <View style={styles.starCont}>
