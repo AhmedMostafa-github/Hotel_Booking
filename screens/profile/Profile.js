@@ -15,6 +15,8 @@ const Profile = ({ navigation }) => {
     <View style={styles.mainCont}>
       <View style={styles.cont}>
         <View style={styles.infoCont}>
+          {/*          this cont to draw camera behind pic and sit on it */}
+
           <View style={styles.imageProfileCont}>
             <Image source={images.profile} style={styles.imageProfile} />
           </View>
@@ -23,6 +25,9 @@ const Profile = ({ navigation }) => {
           </TouchableOpacity>
           <Text style={styles.name}>Tokyo Bronks</Text>
           <Text style={styles.des}>Indonesia</Text>
+
+          {/* this card carry details */}
+
           <View style={styles.cardCont}>
             <Card style={styles.card}>
               <View style={styles.numCont}>

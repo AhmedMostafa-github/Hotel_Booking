@@ -17,6 +17,8 @@ import AppFormek from "../../components/App/Form/AppFormek";
 import SubmitButton from "../../components/App/Form/submitButton";
 import * as authActions from "../../store/actions/auth";
 
+//this a validationSchema for forms to make sure a user fill input or write validate mail or not
+
 const validationSchema = Yup.object().shape({
   email: Yup.string()
     .required("Please Enter Your Username or Email")
@@ -70,9 +72,11 @@ const login = () => {
               design={{ paddingRight: 10 }}
               name="password"
             />
+
             <TouchableOpacity style={styles.forgotCont}>
               <Text style={styles.forgotText}>Forgot Password?</Text>
             </TouchableOpacity>
+
             <SubmitButton
               text="Login"
               width="100%"

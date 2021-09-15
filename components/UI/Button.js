@@ -1,7 +1,9 @@
-import React, { FC } from "react";
+import React from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 
 import Colors from "../../constants/Colors";
+
+//here most reusable button cause can over write any thing
 
 const Button = ({ width, height, text, style, design, disabled, onPress }) => {
   return (

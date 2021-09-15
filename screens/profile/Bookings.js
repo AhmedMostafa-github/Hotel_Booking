@@ -6,6 +6,7 @@ import Colors from "../../constants/Colors";
 import images from "../../constants/images";
 
 const Bookings = () => {
+  //this static data to render flatList
   const [data, setData] = useState([
     {
       id: "1",

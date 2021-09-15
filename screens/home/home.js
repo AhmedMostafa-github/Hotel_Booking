@@ -1,5 +1,4 @@
-import { NavigationContainer } from "@react-navigation/native";
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 
 import Colors from "../../constants/Colors";

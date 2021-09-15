@@ -1,6 +1,6 @@
 import React from "react";
 
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 
@@ -13,6 +13,8 @@ import HotelDetailScreen from "../screens/home/hotelDetailScreen";
 import Colors from "../constants/Colors";
 
 const Stack = createStackNavigator();
+
+//this stack for connect all screens inside the app together
 
 export const HomeStack = () => {
   return (
@@ -55,17 +57,7 @@ const AppNavigator = () => {
     (state) => state.auth.didTrytoAutoLogin
   );
 
-  // if (isFirstLaunch === null) {
-  //   return null;
-  // } else if (isFirstLaunch === true) {
-  //   return (
-  //     <NavigationContainer>
-  //       <StartStack />
-  //     </NavigationContainer>
-  //   );
-  // } else {
-
-  // }
+  //this condition to see the status of the app to see which stack or screen will redner in different Situations
   return (
     <NavigationContainer>
       {logginState && <HomeStack />}

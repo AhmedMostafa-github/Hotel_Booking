@@ -4,10 +4,12 @@ export const AUTHENTICATE = "AUTHENTICATE";
 export const LOGOUT = "LOGOUT";
 export const SET_DID_TRY_AL = "SET_DID_TRY_AL";
 
+//this action for see user if he try login without token so will push him to auth screen
 export const setDidTryAL = () => {
   return { type: SET_DID_TRY_AL };
 };
 
+//this action to collect userId and token from signup and login
 export const authenticate = (userId, token) => {
   return (dispatch) => {
     dispatch({ type: AUTHENTICATE, userId: userId, token: token });
@@ -30,7 +32,7 @@ export const signup = (email, password) => {
         }),
       }
     );
-
+    //this handle error form user while signup
     if (!response.ok) {
       const errorResData = await response.json();
       const errorId = errorResData.error.message;
@@ -41,7 +43,7 @@ export const signup = (email, password) => {
       }
       throw new Error(message);
     }
-
+    //this dispatch a data for authenticate action and async storage
     const resData = await response.json();
     console.log(resData);
     dispatch(authenticate(resData.localId, resData.idToken));
@@ -65,6 +67,7 @@ export const login = (email, password) => {
         }),
       }
     );
+    //this handle error form user while signup
 
     if (!response.ok) {
       const errorResData = await response.json();
@@ -79,6 +82,7 @@ export const login = (email, password) => {
       }
       throw new Error(message);
     }
+    //this dispatch a data for authenticate action and async storage
 
     const resData = await response.json();
     console.log(resData);
@@ -86,12 +90,12 @@ export const login = (email, password) => {
     saveDataToStorage(resData.idToken, resData.localId);
   };
 };
-
+//this action for logout and delete token
 export const logout = () => {
   AsyncStorage.removeItem("userData");
   return { type: LOGOUT };
 };
-
+//this func to send a data to async storage
 const saveDataToStorage = async (token, userId) => {
   await AsyncStorage.setItem(
     "userData",

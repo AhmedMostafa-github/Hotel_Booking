@@ -3,7 +3,7 @@ import { View, TextInput, StyleSheet, TouchableOpacity } from "react-native";
 
 import { Feather } from "@expo/vector-icons";
 
-import Colors from "../../constants/Colors";
+//for input fields
 
 const Input = (props) => {
   return (

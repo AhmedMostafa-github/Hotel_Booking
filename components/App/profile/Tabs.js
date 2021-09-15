@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, Image, TouchableOpacity } from "react-native";
 import Card from "../../UI/card";
 import images from "../../../constants/images";
 
+//this components for tabs in profileScreen
+
 const Tabs = (props) => {
   return (
     <TouchableOpacity onPress={props.onPress}>

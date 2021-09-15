@@ -16,6 +16,8 @@ import AppFormek from "../../components/App/Form/AppFormek";
 import SubmitButton from "../../components/App/Form/submitButton";
 import * as authActions from "../../store/actions/auth";
 
+//this a validationSchema for forms to make sure a user fill input or write validate mail or not
+
 const validationSchema = Yup.object().shape({
   userName: Yup.string()
     .min(2, "Mininum 2 characters")

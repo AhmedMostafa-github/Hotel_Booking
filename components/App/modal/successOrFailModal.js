@@ -6,6 +6,8 @@ import images from "../../../constants/images";
 import Colors from "../../../constants/Colors";
 import Button from "../../UI/Button";
 
+//so success and fail same design but different assets so this mission of props here
+
 const successOrFailModal = (props) => {
   return (
     <Modal visible={props.visible}>

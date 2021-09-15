@@ -12,10 +12,14 @@ import Trending from "../screens/home/Trending";
 
 const TabTop = createMaterialTopTabNavigator();
 
+//this will be default design for inactive screen cause material-top-tabs had a bug that take a highest screen between tabs and this will
+//a standard for all screens which mean if there tab had low height that's will be same height of the most one so we can fix this by make only active tab show her
+//own style but inactive with default design
+
 const DefaultScreen = () => (
   <View style={{ flex: 1, backgroundColor: "white" }} />
 );
-
+// this object carry style of the tab
 const authTobStyle = {
   labelStyle: { fontSize: 20, textTransform: "none" },
   style: {

@@ -1,6 +1,8 @@
 import React from "react";
 import { StyleSheet, View, Modal } from "react-native";
 
+//this default modal with opacity background
+
 const modal = (props) => {
   return (
     <Modal animationType="slide" transparent={true} visible={props.visible}>

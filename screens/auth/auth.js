@@ -11,6 +11,7 @@ import Onbording from "../starts/onbording";
 const auth = () => {
   const [isFirstLaunch, setIsFirstLaunch] = useState(false);
 
+  // this func for make onbording display first time only and hold this in asyncStorage
   useEffect(() => {
     AsyncStorage.getItem("alreadyLaunched").then((value) => {
       if (value === null) {
@@ -21,6 +22,7 @@ const auth = () => {
       }
     });
   }, []);
+
   return (
     <ScrollView>
       <View style={{ backgroundColor: Colors.accent, height: "100%" }}>

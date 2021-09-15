@@ -8,6 +8,8 @@ import Button from "../../components/UI/Button";
 import ChooseModal from "../../components/App/modal/successOrFailModal";
 import BookModal from "../../components/App/modal/bookModal";
 
+//this func to handle a name if more than specific num it will cut it and show ...
+
 const trncate = (str, n) => {
   return str?.length > n ? str.substr(0, n - 1) + "..." : str;
 };
@@ -16,6 +18,8 @@ const hotelDetailScreen = (props) => {
   const [bookModal, setBookModal] = useState(false);
   const [successModal, setSuccessModal] = useState(false);
   const [failModal, setFailModal] = useState(false);
+
+  //this get data of which hotel picked it to show detail
 
   const hotel = props.route.params.hotel;
   const address = props.route.params.address;

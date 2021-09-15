@@ -22,6 +22,9 @@ const trncate = (str, n) => {
 
 const Recommend = (props) => {
   const [data, setData] = useState([]);
+
+  //this array contain a static pics cause api didn't back images so make my own images and spread this with object that came from api and show the images
+
   const array = [
     {
       id: 1,
@@ -32,6 +35,8 @@ const Recommend = (props) => {
       url: "https://cms.qz.com/wp-content/uploads/2020/07/Wythe-Exterior.jpg?quality=75&strip=all&w=1600&h=900&crop=1",
     },
   ];
+
+  //to fetch from api with first render
 
   useEffect(() => {
     const handleFetch = async () => {
@@ -57,6 +62,7 @@ const Recommend = (props) => {
     handleFetch();
   }, []);
 
+  //this handler to send details for details screen while click
   const selectItemHandler = (id, hotel, address, rating, image) => {
     props.navigation.navigate("HotelDetailScreen", {
       id: id,

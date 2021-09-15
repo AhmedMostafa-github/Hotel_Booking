@@ -10,6 +10,8 @@ import * as authActions from "../../store/actions/auth";
 const StartupScreen = (props) => {
   const dispatch = useDispatch();
 
+  //this screen handle all of the app to see if the toke is available to open app or not
+
   useEffect(() => {
     const tryLogin = async () => {
       const userData = await AsyncStorage.getItem("userData");
