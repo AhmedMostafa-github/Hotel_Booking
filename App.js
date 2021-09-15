@@ -9,7 +9,6 @@ import { StatusBar } from "expo-status-bar";
 import Onbording from "./screens/starts/onbording";
 import AppNavigator from "./navigation/AppNavigator";
 import authReducer from "./store/reducers/auth";
-import { StartStack } from "./navigation/AppNavigator";
 
 export const rootReducer = combineReducers({
   auth: authReducer,

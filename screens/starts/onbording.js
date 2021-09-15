@@ -1,18 +1,19 @@
 //importing main libraries
 import React from "react";
-import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
-
-import { useNavigation } from "@react-navigation/native";
+import { StyleSheet, Text, View, Image, Dimensions, Modal } from "react-native";
 
 //import needed component
 import images from "../../constants/images";
 import Button from "../../components/UI/Button";
 import Colors from "../../constants/Colors";
 
-const onbording = () => {
-  const navigation = useNavigation();
+const onbording = (props) => {
   return (
-    <View>
+    <Modal
+      animationType="slide"
+      visible={props.visible}
+      style={{ height: "100%", width: "100%" }}
+    >
       <View style={styles.imageCont}>
         <Image source={images.onbording} style={styles.image} />
       </View>
@@ -34,9 +35,9 @@ const onbording = () => {
         height={Dimensions.get("screen").height * 0.12}
         design={styles.button}
         style={styles.buttonText}
-        onPress={() => navigation.navigate("Auth", { screen: "Login" })}
+        onPress={props.onClick}
       />
-    </View>
+    </Modal>
   );
 };
 
