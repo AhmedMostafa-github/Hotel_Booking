@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+//this component is showing errors which is happend based on validationSchema
+
 const ErrorMessage = (props) => {
   if (!props.visible || !props.error) return null;
 

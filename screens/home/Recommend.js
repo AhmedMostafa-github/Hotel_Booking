@@ -37,7 +37,7 @@ const Recommend = (props) => {
     const handleFetch = async () => {
       try {
         const res = await axios.get(
-          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=500&types=hotels&name=hilton&key=AIzaSyBXd0FXMkiHno3r-eGBgkUqaFzDDvJs9Fw"
+          "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=-33.8670522,151.1957362&radius=10000&types=hotels&name=hilton&key=AIzaSyBXd0FXMkiHno3r-eGBgkUqaFzDDvJs9Fw"
         );
         const data = res.data;
         const test = data.results.map((item, index) => {

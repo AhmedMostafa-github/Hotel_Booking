@@ -8,14 +8,13 @@ import images from "../../../constants/images";
 import Colors from "../../../constants/Colors";
 import Button from "../../UI/Button";
 
+//this modal contian a calender for booking
+
 const bookModal = (props) => {
   return (
     <Modal visible={props.visible}>
       <View style={styles.mainCont}>
-        <TouchableOpacity
-          style={styles.indicatorCont}
-          onPress={() => setModalVisible(false)}
-        >
+        <TouchableOpacity style={styles.indicatorCont}>
           <Image source={images.indicator} style={styles.indicatorIcon} />
         </TouchableOpacity>
         <Calendar

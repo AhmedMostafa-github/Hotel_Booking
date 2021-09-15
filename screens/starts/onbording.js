@@ -2,12 +2,15 @@
 import React from "react";
 import { StyleSheet, Text, View, Image, Dimensions } from "react-native";
 
+import { useNavigation } from "@react-navigation/native";
+
 //import needed component
 import images from "../../constants/images";
 import Button from "../../components/UI/Button";
 import Colors from "../../constants/Colors";
 
 const onbording = () => {
+  const navigation = useNavigation();
   return (
     <View>
       <View style={styles.imageCont}>
@@ -31,6 +34,7 @@ const onbording = () => {
         height={Dimensions.get("screen").height * 0.12}
         design={styles.button}
         style={styles.buttonText}
+        onPress={() => navigation.navigate("Auth", { screen: "Login" })}
       />
     </View>
   );
